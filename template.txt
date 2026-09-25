@@ -1,0 +1,1 @@
+This website uses simple HTML, CSS and JavaScript. All text, prices, phone numbers and locations are dummy placeholders and should be updated before publishing.
