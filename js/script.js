@@ -1,0 +1,1 @@
+const m=document.querySelector('.menu'),n=document.querySelector('nav');if(m)m.onclick=()=>n.style.display=n.style.display==='flex'?'none':'flex';const y=document.querySelector('#year');if(y)y.textContent=new Date().getFullYear();
