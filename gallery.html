@@ -1,8 +1,6 @@
 <!doctype html>
 
-<html lang="en"><head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1"><title>Gallery | Jai 3D Wheeltech</title><meta name="description"
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Gallery | Jai 3D Wheeltech</title><meta name="description"
 content="Photos of Jai 3D Wheeltech, car care services, workshop and team trips in Banswada.">
 
 <link rel="stylesheet" href="css/style.css"><style>
@@ -45,20 +43,6 @@ content="Photos of Jai 3D Wheeltech, car care services, workshop and team trips 
     text-align: center;
     max-width: 650px;
     margin: auto;
-}
-
-
-/* =========================
-   VISIT SECTION
-========================= */
-
-.visit-card {
-    max-width: 750px;
-    margin: 0 auto;
-}
-
-.visit-card p {
-    margin: 6px 0;
 }
 
 
@@ -109,29 +93,46 @@ These trips give our team an opportunity to spend time together
 and create memorable moments outside our daily work.
 </p></div></div></section><!-- GALLERY --><section><div class="container"><div class="section-head"><h2>Our Gallery</h2><p>
 Workshop, car care, wheel alignment, tyre and team photos.
-</p></div><div class="gallery" id="gallery"><!--
-    Add JPG / JPEG / WEBP images from the gallery folder here.
+</p></div><div class="gallery" id="gallery"></div></div></section><!-- INSTAGRAM --><section class="dark"><div class="container"><div class="instagram-box"><h2>More Photos on Instagram</h2><p>
+Follow us on Instagram for more workshop,
+service and team photos.
+</p><p>
+<strong>@jai3d_wheelspot</strong>
+</p><div class="buttons"><a
+href="https://www.instagram.com/jai3d_wheelspot/"
+target="_blank"
+rel="noopener"
+class="btn btn-primary">
 
-    PNG images are intentionally not included.
+View Instagram
 
-    Example:
-    gallery/shop1.jpg
-    gallery/shop2.jpg
-    gallery/carwash.jpg
---><script>
+</a></div></div></div></section><!-- FOOTER --><footer><div class="container foot"><div><strong>Jai 3D Wheeltech</strong>
 
-/*
- * Gallery image list
- *
- * Keep your photos inside:
- *
- * gallery/
- *
- * PNG files are excluded.
- *
- * Add/remove filenames below whenever you
- * add or remove photos from the folder.
- */
+<br>Car Care • Wheel Alignment • Tyres • Coating
+
+</div><div>📞 +91 99482 05203
+
+<br>📍 Beside Bus Depot, Banswada
+
+</div></div><div
+class="container"
+style="margin-top:20px">© <span id="year"></span> Jai 3D Wheeltech
+
+</div></footer><script src="js/script.js"></script><script>
+
+/* ==========================================
+   GALLERY IMAGES
+   ==========================================
+
+   Images must be inside:
+
+   gallery/
+
+   PNG files are intentionally excluded.
+
+   Spaces in filenames are supported.
+*/
+
 
 const galleryImages = [
 
@@ -147,37 +148,53 @@ const galleryImages = [
     "alignment setup2.jpeg",
 
     "jai3dteam1.jpg",
-    "jai3dteam2.jpg",
+    "jai3dteam2.jpg"
 
 ];
 
 
-/*
- * Display images
- */
+
+/* ==========================================
+   DISPLAY GALLERY
+   ========================================== */
 
 const gallery = document.getElementById("gallery");
 
 
 galleryImages.forEach(function(file) {
 
-    const photo = document.createElement("div");
+    /*
+     * encodeURIComponent handles filenames
+     * containing spaces and special characters.
+     */
+
+    const imagePath =
+        "gallery/" + encodeURIComponent(file);
+
+
+    const photo =
+        document.createElement("div");
 
     photo.className = "photo";
 
 
-    const image = document.createElement("img");
+    const image =
+        document.createElement("img");
 
-    image.src = "gallery/" + file;
 
-    image.alt = "Jai 3D Wheeltech - " + file;
+    image.src = imagePath;
+
+
+    image.alt =
+        "Jai 3D Wheeltech - " + file;
+
 
     image.loading = "lazy";
 
 
     /*
-     * If an image doesn't exist,
-     * remove its empty box automatically.
+     * If the file does not exist,
+     * don't show an empty gallery box.
      */
 
     image.onerror = function() {
@@ -188,13 +205,13 @@ galleryImages.forEach(function(file) {
 
 
     /*
-     * Click thumbnail to open full image.
+     * Open full-size image when clicked.
      */
 
     photo.onclick = function() {
 
         window.open(
-            "gallery/" + file,
+            imagePath,
             "_blank"
         );
 
@@ -207,52 +224,4 @@ galleryImages.forEach(function(file) {
 
 });
 
-</script></div></div></section><!-- INSTAGRAM --><section class="dark"><div class="container"><div class="instagram-box"><h2>More Photos on Instagram</h2><p>
-Follow us on Instagram for more workshop,
-service and team photos.
-</p><p>
-<strong>@jai3d_wheelspot</strong>
-</p><div class="buttons"><a
-href="https://www.instagram.com/jai3d_wheelspot/"
-target="_blank"
-rel="noopener"
-class="btn btn-primary">
-
-View Instagram
-
-</a></div></div></div></section><!-- VISIT US --><section><div class="container"><div class="section-head"><h2>Visit Jai 3D Wheeltech</h2><p>
-For service enquiries, pricing and appointments,
-contact us directly.
-</p></div><div class="detail visit-card"><h3>Jai 3D Wheeltech</h3><p>📍 Beside Bus Depot, Banswada</p><p>📞 +91 99482 05203</p><p>📧 jai3dwheeltech@gmail.com</p><div class="buttons"><a
-href="https://wa.me/919948205203?text=Hello%20Jai%203D%20Wheeltech%2C%20I%20would%20like%20to%20enquire%20about%20your%20services."
-target="_blank"
-rel="noopener"
-class="btn btn-primary">
-
-WhatsApp
-
-</a><a
-href="tel:+919948205203"
-class="btn btn-outline">
-
-Call Now
-
-</a><a
-href="contact.html"
-class="btn btn-outline">
-
-Contact Us
-
-</a></div></div></div></section><!-- FOOTER --><footer><div class="container foot"><div><strong>Jai 3D Wheeltech</strong>
-
-<br>Car Care • Wheel Alignment • Tyres • Coating
-
-</div><div>📞 +91 99482 05203
-
-<br>📍 Beside Bus Depot, Banswada
-
-</div></div><div
-class="container"
-style="margin-top:20px">© <span id="year"></span> Jai 3D Wheeltech
-
-</div></footer><script src="js/script.js"></script></body></html>
+</script></body></html>
